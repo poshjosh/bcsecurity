@@ -3,6 +3,7 @@ Encryption, Decryption, Hashing, Authentication tools
 
 # Example usages
 
+```
         final char[] pass = "3rfUmx-?".toCharArray();
 
         final SecurityProvider sy = SecurityProvider.DEFAULT;
@@ -30,4 +31,4 @@ Encryption, Decryption, Hashing, Authentication tools
         final boolean authenticated_aes = Arrays.equals(pass_dec, pass);
 
         System.out.println("Authenticated AES: "+authenticated_aes);
-
+```
