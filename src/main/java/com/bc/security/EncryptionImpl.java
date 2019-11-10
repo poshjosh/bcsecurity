@@ -76,7 +76,7 @@ public class EncryptionImpl implements Encryption {
     public synchronized final String encrypt(char [] input) 
             throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         
-        Objects.requireNonNull(input, () -> "String to encrypt == null");
+        Objects.requireNonNull(input, "String to encrypt == null");
         
         final Cipher cipher = this.getCipher();
         
@@ -100,7 +100,7 @@ public class EncryptionImpl implements Encryption {
     public synchronized final char [] decrypt(String input) 
             throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         
-        Objects.requireNonNull(input, () -> "String to decrypt == null");
+        Objects.requireNonNull(input, "String to decrypt == null");
 
         final Cipher cipher = this.getCipher();
         
