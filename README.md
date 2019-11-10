@@ -3,7 +3,7 @@ Encryption, Decryption, Hashing, Authentication tools
 
 # Example usages
 
-```
+```java
         final char[] pass = "3rfUmx-?".toCharArray();
 
         final SecurityProvider sy = SecurityProvider.DEFAULT;
