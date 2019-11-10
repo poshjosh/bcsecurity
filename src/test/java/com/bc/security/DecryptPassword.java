@@ -1,11 +1,14 @@
 package com.bc.security;
 
 import java.security.GeneralSecurityException;
+import java.util.Properties;
 
 /**
  * @author Chinomso Bassey Ikwuagwu on Jun 24, 2017 9:46:52 PM
  */
 public class DecryptPassword {
+    
+    private static final Properties props = new Properties();
 
     public static void main(String [] args) {
         
@@ -13,9 +16,13 @@ public class DecryptPassword {
             
             final DecryptPassword dp = new DecryptPassword();
             
-System.out.println("NewsMinute. coolbuyng@gmail.com\tPassword: " + new String(dp.decrypt("9bd0edf2adde512ef0467804a9bafd73")));
+            String email = "coolbuyng@gmail.com";
+            System.out.println("NewsMinute. "+email+"\tPassword: " + 
+                    new String(dp.decrypt(props.getProperty("encryptedpassword."+email))));
             
-System.out.println("NewsMinute. posh.bc@gmail.com\tPassword: " + new String(dp.decrypt("099f42975a9855afe91efd705236941b"))); 
+            email = "posh.bc@gmail.com";
+            System.out.println("NewsMinute. "+email+"\tPassword: " + 
+                    new String(dp.decrypt(props.getProperty("encryptedpassword."+email)))); 
 
         }catch(Exception e) {
             e.printStackTrace();
@@ -24,7 +31,7 @@ System.out.println("NewsMinute. posh.bc@gmail.com\tPassword: " + new String(dp.d
 
     private char [] decrypt(String val) throws GeneralSecurityException {
         
-        return this.decrypt("AES", "AcIcvwW2MU4sJkvBx103m6gKsePm", val);
+        return this.decrypt("AES", props.getProperty("encryption.key"), val);
     }
     
     private char [] decrypt(String algo, String enkey, String val) throws GeneralSecurityException {
