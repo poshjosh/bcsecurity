@@ -1,7 +1,7 @@
 # bcsecurity
 Encryption, Decryption, Hashing, Authentication tools
 
-# Example usages
+## Example usages
 
 ```java
         final char[] pass = "3rfUmx-?".toCharArray();
